@@ -1,6 +1,22 @@
-var row = document.getElementByName(height);
-var col = document.getElementByName(width);
-var mines = document.getElementByName(mines);
+// var row = document.getElementById("row").value;
+// var col = document.getElementById("col").value;
+// var mines = document.getElementById("mine").value;
+var cols, rows, mines, numCells;
+
+function checkInput(){
+    cols = document.getElementById("col").value;
+    rows = document.getElementById("row").value;
+    mines = document.getElementById("mine").value;
+    numCells = cols * rows;
+
+    if (isNaN(cols)||isNaN(rows)||isNaN(mines)||
+        width<8||height<8||width>40||height>30||mines<1||mines>(numCells)){
+            return; //input is invalid
+    } else {
+        createMap(cols, rows, mines);
+    }
+}
+
 
 function checkMap(x, y){
     //for (i=0; i<)
@@ -10,37 +26,32 @@ function checkMap(x, y){
 function setTimer(){
 
 }
-function startGame(){
-    function createMap(row,col,mines);
-}
     
 // Board Object
-function createMap(col, row, mines){
-    // rows = row;
-    // cols = col;
-    // mines = mine;
-
-    var mapSize = row*col;
-    if (row < 8 || col < 8 || col > 40 || row > 30 || mines < 1 || mines > (mapSize-1)){
-        return 0;
-    } 
+function createMap(col, row, mine){
     //cells = [];
     board = [];
-    cellsRevealed = 0;
+    //cellsRevealed = 0;
     minesPlaced = 0;
     //smile = false;
+    var cells = [];
 
-    var cells = new Array(col);
-    for (i=0; i<cells.length; i++){
-            cells[i] = new Array(rows)
-            cells[i][j] = document.createElement('img');
-            cells[i][j].src = "x.png";
+    for (i=0;i<row*col;i++) // Create the tiles.
+    {
+    cells[i] =document.createElement('button');        // Each tile is an HTML image.
+    //cells[i].src="x.png";                        // Initial picture: uncovered tile.
+    cells[i].style="position:absolute;height:30px; width: 30px";
+    cells[i].style.top=50+Math.floor(i/col)*30;        // Place the tile vertically
+    cells[i].style.left=400+i%col*30;                // and horizontally.
+    cells[i].addEventListener('mousedown',click);        // Function 'click' will be executed when player clicks on a tile.
+    cells[i].id=i;                                        // The id of the tile is its index.
+    document.body.appendChild(cells[i]);                // Add the tile to the DOM.
     }
 
-    while (minesPlaced < mines){
-        i = Math.floor(Math.random()*mapSize);
+    while (minesPlaced < mine){
+        i = Math.floor(Math.random()*col*row);
         if (board[i]!='mine'){
-            board[i] = mine;
+            board[i] = 'mine';
             minesPlaced++;
         }
     }
@@ -86,9 +97,9 @@ function click(event){
     if(event.which==3)        // On right click:
         {
         switch(picture(id)){
-            case 'x':tile[id].src='f.png';remaining--; break;         // If the tile is uncovered, set a flag.
-            case 'f':tile[id].src='q.png';remaining++; break;         // If it's a flag, set a question mark.
-            case 'q':tile[id].src='x.png';break;                        // If it's a question mark, set it to uncovered.
+            case 'x':cells[id].src='f.png';remaining--; break;         // If the tile is uncovered, set a flag.
+            case 'f':cells[id].src='q.png';remaining++; break;         // If it's a flag, set a question mark.
+            case 'q':cells[id].src='x.png';break;                        // If it's a question mark, set it to uncovered.
         }
         event.preventDefault();
     }
