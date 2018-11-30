@@ -1,5 +1,5 @@
-function checkMap(x1, y1){
-        return board[x1+y1*cols];
+function checkMap(x, y){
+        return board[x+y*cols];
 }
 
 function picture(index)        // This function returns the name of the image of the tile (uncovered/flag/question mark).
@@ -8,8 +8,8 @@ function picture(index)        // This function returns the name of the image of
         {
         return tile[index].src.substr(tile[index].src.length-5,1);
         }
-function startGame()        // initialize the board
-        {
+
+function startGame(){
         cols = document.getElementById("col").value;
         rows = document.getElementById("row").value;
         mines = document.getElementById("mine").value;
@@ -39,15 +39,13 @@ function startGame()        // initialize the board
                 }
         // Place the mines:
         placed=0;
-        do
-                {
-                i=Math.floor(Math.random()*cols*rows);        // Select a random tile.
-                if (board[i]!='mine')        // Make sure the tile doesn't already have a mine.
-                        {
-                        board[i]='mine';        // Set the mine
-                        placed++;        // and increase the count.
-                        }        
-                } while (placed<mines);        // Repeat until all mines are placed.
+        while (minesPlaced < mine){
+                i = Math.floor(Math.random()*col*row);
+                if (board[i]!='mine'){
+                        board[i] = 'mine';
+                        minesPlaced++;
+                }
+        }
         
         for (k=0; k<row; k++){
                 for (l=0; l<col; l++){
