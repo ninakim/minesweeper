@@ -1,5 +1,5 @@
 function check(x1, y1){
-        return board[x1+y1*columns];
+        return board[x1+y1*cols];
 }
 
 function picture(index)        // This function returns the name of the image of the tile (uncovered/flag/question mark).
@@ -49,23 +49,41 @@ function startGame()        // initialize the board
                         }        
                 } while (placed<mines);        // Repeat until all mines are placed.
         
-        for(var x=0;x<cols;x++)        // For each column
-                for(y=0;y<rows+1;y++)        // and each row:
-                        {
-                        if(check(x,y)!='mine') //if the cell is not a mine:
-                                {
-                                board[x+y*cols]= // the value of the cell is the sum of mines in the eight neighboring tiles:
-                                 ((check(x,y+1)=='mine')|0)        // down
-                                +((check(x-1,y+1)=='mine')|0)        // down & left
-                                +((check(x+1,y+1)=='mine')|0)        // down & right
-                                +((check(x,y-1)=='mine')|0)        // up
-                                +((check(x-1,y-1)=='mine')|0)        // up & left
-                                +((check(x+1,y-1)=='mine')|0)        // up & right
-                                +((check(x-1,y)=='mine')|0)        // left
-                                +((check(x+1,y)=='mine')|0);        // right.
+        for (k=0; k<row; k++){
+                for (l=0; l<col; l++){
+                        if (checkMap(l,k) != 'mine'){
+                                var sum;
+                                if (checkMap(l-1, k-1) == 'mine'){ //upper left corner
+                                        sum++;
                                 }
+                                if (checkMap(l, k-1) == 'mine'){ //upper middle
+                                        sum++;
+                                }
+                                if (checkMap(l+1, k-1) == 'mine'){ //upper right corner
+                                        sum++;
+                                }
+                                if (checkMap(l-1, k) == 'mine'){ //middle left
+                                        sum++;
+                                }
+                                if (checkMap(l+1, k) == 'mine'){ //middle right
+                                        sum++;
+                                }
+                                if (checkMap(l-1, k+1) == 'mine'){ //lower left corner
+                                        sum++;
+                                }
+                                if (checkMap(l, k+1) == 'mine'){ //lower middle
+                                        sum++;
+                                }
+                                if (checkMap(l+1, k+1) == 'mine'){ //lower right corner
+                                        sum++;
+                                }
+                                board[l+k*col] = sum;
+
                         }
+                }
         }
+}
+
 function click(event)
         {
         var source = event.target;
