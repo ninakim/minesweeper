@@ -1,6 +1,6 @@
 function check(x1, y1)        // this function returns the value of the tile using the (x1,y1) coordinates. (0,0) is in the upper left corner.
         {
-        if((x1>=0)&&(y1>=0)&&(x1<columns)&&(y1<rows)) //Verify if coordinates do not fall outside of the board.
+        //if((x1>=0)&&(y1>=0)&&(x1<columns)&&(y1<rows)) //Verify if coordinates do not fall outside of the board.
                 return board[x1+y1*columns];
         }
 function picture(index)        // This function returns the name of the image of the tile (uncovered/flag/question mark).
