@@ -24,9 +24,9 @@ function picture(index)        // This function returns the name of the image of
         }
 function createMap(cols, rows, mines)        // initialize the board
         {
-        this.cols = col;
-        this.rows = row;
-        this.mines = mine;
+        //this.cols = col;
+        //this.rows = row;
+        //this.mines = mine;
                 
         document.getElementById('status').innerHTML=('Click on the tiles to reveal them');
 
