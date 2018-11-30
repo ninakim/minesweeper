@@ -1,4 +1,4 @@
-function check(x1, y1){
+function checkMap(x1, y1){
         return board[x1+y1*cols];
 }
 
