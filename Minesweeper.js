@@ -15,8 +15,8 @@ function startGame()        // initialize the board
         mines = document.getElementById("mine").value;
         numCells = cols * rows;
 
-        if (isNaN(col)||isNaN(row)||isNaN(mine)||
-                col<8||row<8||col>40||row>30||mine<1||mine>(numCells)){
+        if (isNaN(cols)||isNaN(rows)||isNaN(mines)||
+                cols<8||rows<8||cols>40||rows>30||mines<1||mines>(numCells)){
                 document.getElementById('status').innerHTML='INVALID<br><br>Click here to restart'; //input is invalid
         }
                 
@@ -41,7 +41,7 @@ function startGame()        // initialize the board
         placed=0;
         do
                 {
-                i=Math.floor(Math.random()*columns*rows);        // Select a random tile.
+                i=Math.floor(Math.random()*cols*rows);        // Select a random tile.
                 if (board[i]!='mine')        // Make sure the tile doesn't already have a mine.
                         {
                         board[i]='mine';        // Set the mine
@@ -49,7 +49,7 @@ function startGame()        // initialize the board
                         }        
                 } while (placed<mines);        // Repeat until all mines are placed.
         
-        for(var x=0;x<colss;x++)        // For each column
+        for(var x=0;x<cols;x++)        // For each column
                 for(y=0;y<rows+1;y++)        // and each row:
                         {
                         if(check(x,y)!='mine') //if the cell is not a mine:
