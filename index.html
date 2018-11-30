@@ -3,7 +3,21 @@
         <script src="Minesweeper.js"></script>
 </head>
 
-<body onLoad = "init()" oncontextmenu="return false;" >
+<body>
+        <h1 id="title">Minesweeper</h1>
+        <div id="gameForm">
+            <form>
+                Width:<br>
+                <input type="number" name="width" id="col"><br>
+                Height:<br>
+                <input type="number" name="height" id="row"><br>
+                Mines:<br>
+                <input type="number" name="mines" id="mine"><br>
+            </form>
+        </div>
+        <div id="startButton">
+            <button onclick="init()" oncontextmenu="return false;">Start Game</button>
+        </div>
 <br><br><br><br><br>
 <label id="status" onclick="init()"></label>
 </body></html>
