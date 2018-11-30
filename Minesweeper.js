@@ -2,18 +2,34 @@ function check(x1, y1){
         return board[x1+y1*columns];
 }
 
+function checkInput(){
+    col = document.getElementById("col").value;
+    row = document.getElementById("row").value;
+    mine = document.getElementById("mine").value;
+    numCells = col * row;
+
+    if (isNaN(col)||isNaN(row)||isNaN(mine)||
+        col<8||row<8||col>40||row>30||mine<1||mine>(numCells)){
+        document.getElementById('status').innerHTML='INVALID<br><br>Click here to restart'; //input is invalid
+    } else {
+        createMap(col, row, mine);
+    }
+}
+
 function picture(index)        // This function returns the name of the image of the tile (uncovered/flag/question mark).
                         // To be more precise, it returns the last but four letter of the filename of the image.
                         // It would be more elegant if we created a separate array to indicate it, but I chose this clunky way to shorten the code a bit.
         {
         return tile[index].src.substr(tile[index].src.length-5,1);
         }
-function init()        // initialize the board
+function createMap(cols, rows, mines)        // initialize the board
         {
+        this.cols = col;
+        this.rows = row;
+        this.mines = mine;
+                
         document.getElementById('status').innerHTML=('Click on the tiles to reveal them');
-        mines = document.getElementById("mine").value;
-        rows = document.getElementById("row").value; 
-        columns = document.getElementById("col").value;        // Set the number of mines and the size of the board.
+
         remaining = mines;        // The number of mines remaining to be found.
         tile=[];
         board=[];
