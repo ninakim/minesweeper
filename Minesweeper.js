@@ -12,7 +12,7 @@ function picture(index)        // This function returns the name of the image of
         return tile[index].src.substr(tile[index].src.length-5,1);
         }
 
-function startGame()        // initialize the board
+function init()        // initialize the board
         {
         document.getElementById('status').innerHTML=('Click on the tiles to reveal them');
         mines=5;
