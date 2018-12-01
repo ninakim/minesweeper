@@ -39,12 +39,13 @@ function startGame(){
                         cells[i][j].setAttribute("data-row", i);
                         cells[i][j].setAttribute("data-col", j);
                         cells[i][j].addEventListener('mousedown',click);
+                        var newCell = cells[i][j];
                         //cells[i][j].id = j;
                         var status = document.getElementById("status");
-                        status.appendChild(cells[i][j]);
+                        status.appendChild(newCell);
                 }
                 var br = document.createElement('br');
-                cells[i][j].appendChild(br);
+                newCell.appendChild(br);
         }
         /* for (i=0;i<rows*cols;i++) // Create the tiles.
                 {
