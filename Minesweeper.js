@@ -9,10 +9,10 @@ function picture(index){        // This function returns the name of the image o
         }
 
 function startGame(){
-        var cols = document.getElementById("col").value;
-        var rows = document.getElementById("row").value;
-        var mines = document.getElementById("mine").value;
-        var numCells = cols * rows;
+        cols = document.getElementById("col").value;
+        rows = document.getElementById("row").value;
+        mines = document.getElementById("mine").value;
+        numCells = cols * rows;
 
         if (isNaN(cols)||isNaN(rows)||isNaN(mines)||
                 cols<8||rows<8||cols>40||rows>30||mines<1||mines>(numCells)){
@@ -32,6 +32,8 @@ function startGame(){
                         cells[i].id = i;
                         document.body.appendChild(cells[i]);
                 }
+                var break = document.createElement('br');
+                document.body.appendChild(break);
         }
         /* for (i=0;i<rows*cols;i++) // Create the tiles.
                 {
