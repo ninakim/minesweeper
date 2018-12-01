@@ -28,7 +28,7 @@ function startGame(){
         revealed=0;                // The number of revealed tiles.
         for (i=0;i<rows*cols;i++) // Create the tiles.
                 {
-                tile[i] =document.createElement('button');        // Each tile is an HTML image.
+                tile[i] =document.createElement('img');        // Each tile is an HTML image.
                 tile[i].src="x.png";                        // Initial picture: uncovered tile.
                 tile[i].style="position:absolute;height:30px; width: 30px";
                 tile[i].style.top=50+Math.floor(i/cols)*30;        // Place the tile vertically
