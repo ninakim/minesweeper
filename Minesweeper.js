@@ -58,9 +58,9 @@ function startGame(){
                 document.body.appendChild(tile[i]);                // Add the tile to the DOM.
                 } */
         // Place the mines:
-        placed=0;
-        while (minesPlaced < mine){
-                i = Math.floor(Math.random()*col*row);
+        minesPlaced=0;
+        while (minesPlaced < mines){
+                i = Math.floor(Math.random()*cols*rows);
                 if (cellValues[i]!='mine'){
                         cellValues[i] = 'mine';
                         minesPlaced++;
