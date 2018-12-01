@@ -9,6 +9,7 @@ function picture(index){        // This function returns the name of the image o
         }
 
 function startGame(){
+        document.getElementById('status').innerHTML=('Click on the tiles to reveal them');
         cols = document.getElementById("col").value;
         rows = document.getElementById("row").value;
         mines = document.getElementById("mine").value;
@@ -19,7 +20,7 @@ function startGame(){
                 document.getElementById('status').innerHTML='INVALID<br><br>Click here to restart'; //input is invalid
         }
                 
-        document.getElementById('status').innerHTML=('Click on the tiles to reveal them');
+ 
 
         remaining = mines;        // The number of mines remaining to be found.
         cells=[];
