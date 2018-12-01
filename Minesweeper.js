@@ -23,19 +23,19 @@ function startGame(){
  
 
         remaining = mines;        // The number of mines remaining to be found.
-        cells=[];
+        tile=[];
         cellValues=[];
         revealed=0;                // The number of revealed tiles.
         for (i=0;i<rows*cols;i++) // Create the tiles.
                 {
-                cells[i] =document.createElement('button');        // Each tile is an HTML image.
-                cells[i].src="x.png";                        // Initial picture: uncovered tile.
-                cells[i].style="position:absolute;height:30px; width: 30px";
-                cells[i].style.top=50+Math.floor(i/cols)*30;        // Place the tile vertically
-                cells[i].style.left=400+i%cols*30;                // and horizontally.
-                cells[i].addEventListener('mousedown',click);        // Function 'click' will be executed when player clicks on a tile.
-                cells[i].id=i;                                        // The id of the tile is its index.
-                document.body.appendChild(cells[i]);                // Add the tile to the DOM.
+                tile[i] =document.createElement('button');        // Each tile is an HTML image.
+                tile[i].src="x.png";                        // Initial picture: uncovered tile.
+                tile[i].style="position:absolute;height:30px; width: 30px";
+                tile[i].style.top=50+Math.floor(i/cols)*30;        // Place the tile vertically
+                tile[i].style.left=400+i%cols*30;                // and horizontally.
+                tile[i].addEventListener('mousedown',click);        // Function 'click' will be executed when player clicks on a tile.
+                tile[i].id=i;                                        // The id of the tile is its index.
+                document.body.appendChild(tile[i]);                // Add the tile to the DOM.
                 }
         //create a 2d array
         /*
