@@ -23,13 +23,13 @@ function startGame(){
  
 
         remaining = mines;        // The number of mines remaining to be found.
-        cells=[];
+        //cells=[];
         cellValues=[];
         revealed=0;                // The number of revealed tiles.
         //create a 2d array
-        var arr = new Array(cols);
+        var cells = new Array(cols);
         for (i=0; i<cols; i++){
-                arr[i] = new Array(rows);
+                cells[i] = new Array(rows);
         }
         
         for (i=0; i<=rows; i++){
