@@ -101,7 +101,7 @@ function startGame(){
                 }
         }
 }
-
+/*
 function click(event) {
         var source = event.target;
         id=source.id;                        // The ID of the tile clicked by user.
@@ -154,4 +154,4 @@ function reveal(index)        // Uncover the tile
                 if(x<(cols-1)&&y>0&&y<(rows-1)&&picture(+index-cols+1)=="x") reveal(+index-cols+1);                // up & right
                 
                 }
-        }      
+        }   */   
