@@ -28,12 +28,16 @@ function startGame(){
         for (i=0; i<=rows; i++){
                 for (j=0; j<=cols; j++){
                         cells[i][j] = document.createElement('button');
+                        cells[i][j].setAttribute("id", "cells");
+                        cells[i][j].setAttribute("data-row", i);
+                        cells[i][j].setAttribute("data-col", j);
                         cells[i][j].addEventListener('mousedown',click);
-                        cells[i][j].id = j;
-                        document.body.appendChild(cells[i][j]);
+                        //cells[i][j].id = j;
+                        var status = document.getElementById("status");
+                        status.appendChild(cells[i][j]);
                 }
-                var break = document.createElement('br');
-                document.body.appendChild(break);
+                var br = document.createElement('br');
+                cells[i][j].appendChild(br);
         }
         /* for (i=0;i<rows*cols;i++) // Create the tiles.
                 {
