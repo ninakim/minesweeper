@@ -23,7 +23,7 @@ function startGame(){
  
 
         remaining = mines;        // The number of mines remaining to be found.
-        //cells=[];
+        cells=[];
         cellValues=[];
         revealed=0;                // The number of revealed tiles.
         for (i=0;i<rows*cols;i++) // Create the tiles.
