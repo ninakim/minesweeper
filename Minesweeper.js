@@ -5,7 +5,7 @@ function checkMap(x1, y1){
 function picture(index){        // This function returns the name of the image of the tile (uncovered/flag/question mark).
                         // To be more precise, it returns the last but four letter of the filename of the image.
                         // It would be more elegant if we created a separate array to indicate it, but I chose this clunky way to shorten the code a bit.
-        return cells[index].src.substr(cells[index].src.length-5,1);
+        return tile[index].src.substr(tile[index].src.length-5,1);
         }
 
 function startGame(){
@@ -71,12 +71,12 @@ function startGame(){
                 document.body.appendChild(tile[i]);                // Add the tile to the DOM.
                 } */
         // Place the mines:
-        /*
+        
         minesPlaced=0;
         while (minesPlaced < mines){
                 i = Math.floor(Math.random()*cols*rows);
-                if (cellValues[i]!='mine'){
-                        cellValues[i] = 'mine';
+                if (board[i]!='mine'){
+                        board[i] = 'mine';
                         minesPlaced++;
                 }
         }
@@ -109,11 +109,11 @@ function startGame(){
                                 if (checkMap(l+1, k+1) == 'mine'){ //lower right corner
                                         sum++;
                                 }
-                                cellValues[l+k*col] = sum;
+                                board[l+k*col] = sum;
 
                         }
                 }
-        }*/
+        }
 }
 /*
 function click(event) {
