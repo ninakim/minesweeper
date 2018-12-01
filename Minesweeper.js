@@ -26,7 +26,15 @@ function startGame(){
         tile=[];
         board=[];
         revealed=0;                // The number of revealed tiles.
-        for (i=0;i<rows*cols;i++) // Create the tiles.
+        for (i=0; i<=rows; i++){
+                for (j=0; j<=cols; j++){
+                        tile[i] = document.createElement('button');
+                        tile[i].addEventListener('mousedown',click);
+                        tile[i].id = i;
+                        document.body.appendChild(tile[i]);
+                }
+        }
+        /* for (i=0;i<rows*cols;i++) // Create the tiles.
                 {
                 tile[i] =document.createElement('button');        // Each tile is an HTML image.
                 tile[i].src="x.png";                        // Initial picture: uncovered tile.
@@ -36,7 +44,7 @@ function startGame(){
                 tile[i].addEventListener('mousedown',click);        // Function 'click' will be executed when player clicks on a tile.
                 tile[i].id=i;                                        // The id of the tile is its index.
                 document.body.appendChild(tile[i]);                // Add the tile to the DOM.
-                }
+                } */
         // Place the mines:
         placed=0;
         while (minesPlaced < mine){
