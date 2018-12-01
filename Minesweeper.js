@@ -25,8 +25,8 @@ function startGame(){
         cells=[];
         cellValues=[];
         revealed=0;                // The number of revealed tiles.
-        for (i=0; i<=rows; i++){
-                for (j=0; j<=cols; j++){
+        for (i=0; i<rows; i++){
+                for (j=0; j<cols; j++){
                         cells[i] = document.createElement('button');
                         cells[i].addEventListener('mousedown',click);
                         cells[i].id = i;
