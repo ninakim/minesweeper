@@ -27,13 +27,13 @@ function startGame(){
         cellValues=[];
         revealed=0;                // The number of revealed tiles.
         //create a 2d array
-        var cells = new Array(cols);
-        for (i=0; i<cols; i++){
-                cells[i] = new Array(rows);
+        var cells = new Array(rows);
+        for (n=0; n<rows; n++){
+                cells[n] = new Array(cols);
         }
         
-        for (i=0; i<=rows; i++){
-                for (j=0; j<=cols; j++){
+        for (i=0; i<rows; i++){
+                for (j=0; j<cols; j++){
                         cells[i][j] = document.createElement('button');
                         cells[i][j].setAttribute("id", "cells");
                         cells[i][j].setAttribute("data-row", i);
