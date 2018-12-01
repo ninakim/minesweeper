@@ -1,5 +1,5 @@
-function checkMap(x, y){
-        return cellValues[x+y*cols];
+function checkMap(x1, y1){
+        return board[x1+y1*cols];
 }
 
 function picture(index){        // This function returns the name of the image of the tile (uncovered/flag/question mark).
@@ -24,7 +24,7 @@ function startGame(){
 
         remaining = mines;        // The number of mines remaining to be found.
         tile=[];
-        cellValues=[];
+        board=[];
         revealed=0;                // The number of revealed tiles.
         for (i=0;i<rows*cols;i++) // Create the tiles.
                 {
